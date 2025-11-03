@@ -1,6 +1,11 @@
 # BearcatLanding
 As a part of UC's UI course--we are redesigning a 'bad' user interface in which we decided on the UC landing portal page
 
+Installed Packages: 
+npm
+postcss
+tailwing config
+
 Why the landing page? A great article to figure out why (other than it being not personal to students needs) check out this article by Harry Albert at The Williams Record. 
 https://williamsrecord.com/463148/opinions/listen-i-dont-like-to-complain-but-why-are-the-colleges-websites-so-painful-to-use/ 
 
