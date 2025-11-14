@@ -21,7 +21,7 @@
       <Header {currentView} {setView} />
       <main class="p-6 lg:p-8">
         {#if currentView === 'dashboard'}
-          <Dashboard />
+          <Dashboard {setView} />
         {:else if currentView === 'calendar'}
           <Calendar />
         {:else if currentView === 'finances'}

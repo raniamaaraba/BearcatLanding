@@ -1,4 +1,5 @@
 <script>
+  export let setView;
   import uiLogo from './assets/ui-class.png';
   import aiLogo from './assets/ai-logo.jpg';
   import compEng from './assets/c-eng-logo.png';
@@ -14,15 +15,16 @@
     { label: 'Next Class', value: '2:30 PM', sublabel: 'Operating Systems',  color: 'bg-purple-50 border-purple-200 text-purple-600' }
   ];
 
-  //Quick Access Links
+
+  //Quick Access Links - make sure they link?
   const quickLinks = [
-    { title: 'Canvas', description: 'View courses & assignments', color: 'bg-red-600', href: '#canvas' },
-    { title: 'Catalyst', description: 'Register for classes', color: 'bg-orange-600', href: '#catalyst' },
-    { title: 'Outlook', description: 'Check university email',  color: 'bg-blue-600', href: '#outlook' },
-    { title: 'My Grad Plan', description: 'Track degree progress',  color: 'bg-green-600', href: '#gradplan' },
-    { title: 'Finances', description: 'View balance & aid',  color: 'bg-yellow-600', href: '#finances' },
-    { title: 'Campus Jobs', description: 'Find work opportunities',  color: 'bg-indigo-600', href: '#jobs' }
-  ];
+  { title: 'Canvas', description: 'View courses & assignments', color: 'bg-red-600', href: 'https://uc.instructure.com', external: true },
+  { title: 'Catalyst', description: 'Register for classes', color: 'bg-orange-600', href: 'https://classes.catalyst-services.uc.edu/search/', external: true },
+  { title: 'Outlook', description: 'Check university email', color: 'bg-blue-600', href: 'https://outlook.office.com/mail/', external: true },
+  { title: 'My Grad Plan', description: 'Track degree progress', color: 'bg-green-600', view: 'calendar', external: false },
+  { title: 'Finances', description: 'View balance & aid', color: 'bg-yellow-600', view: 'finances', external: false },
+  { title: 'Campus Jobs', description: 'Find work opportunities', color: 'bg-indigo-600', href: 'https://uc.joinhandshake.com/explore', external: true }
+];
 
   const classes = [
     { title: 'User Interfaces', code: 'CS 5167-001', teacher: 'Jillian Aurisano', posted: '12 hours ago', assignment: 'Group 4: Check-in!', due: 'Due Tuesday at 11:59 PM', logo: uiLogo, status: 'urgent' },
@@ -109,14 +111,27 @@
     </h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
       {#each quickLinks as link}
-        <a 
-          href={link.href}
-          class="group p-4 rounded-lg border-2 border-gray-200 hover:border-red-500 hover:shadow-lg transition-all text-center"
-        >
-          <div class="text-4xl mb-2">{link.icon}</div>
-          <div class="font-semibold text-sm mb-1">{link.title}</div>
-          <div class="text-xs text-gray-500 group-hover:text-gray-700">{link.description}</div>
-        </a>
+        {#if link.external}
+          <a 
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group p-4 rounded-lg border-2 border-gray-200 hover:border-red-500 hover:shadow-lg transition-all text-center"
+          >
+            <div class="text-4xl mb-2">{link.icon}</div>
+            <div class="font-semibold text-sm mb-1">{link.title}</div>
+            <div class="text-xs text-gray-500 group-hover:text-gray-700">{link.description}</div>
+          </a>
+        {:else}
+          <button
+            on:click={() => setView(link.view)}
+            class="group p-4 rounded-lg border-2 border-gray-200 hover:border-red-500 hover:shadow-lg transition-all text-center w-full"
+          >
+            <div class="text-4xl mb-2">{link.icon}</div>
+            <div class="font-semibold text-sm mb-1">{link.title}</div>
+            <div class="text-xs text-gray-500 group-hover:text-gray-700">{link.description}</div>
+          </button>
+        {/if}
       {/each}
     </div>
   </div>
@@ -177,9 +192,13 @@
                   <div class="text-xs {c.status === 'urgent' ? 'text-red-600 font-medium' : 'text-gray-600'}">
                     {c.due}
                   </div>
-                  <button class="text-xs px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">
+                  <a
+                  href="https://uc.instructure.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 inline-block text-center">
                     View in Canvas
-                  </button>
+                  </a>
                 </div>
               </div>
             </li>
@@ -234,9 +253,11 @@
             </div>
           </div>
         </div>
-        <button class="mt-4 w-full px-4 py-2 text-sm border rounded hover:bg-gray-50">
-          View Full Calendar
-        </button>
+        <button
+        class="mt-4 w-full px-4 py-2 text-sm border rounded hover:bg-gray-50"
+        on:click={() => setView('calendar')}>
+        View Full Calendar
+      </button>
       </div>
 
       <!----Campus Resources -->
