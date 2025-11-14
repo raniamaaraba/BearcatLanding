@@ -74,5 +74,5 @@ Additionally, scrolling further down gives you a more in-depth look into your pa
 <img width="1512" height="763" alt="Screenshot 2025-11-14 at 11 37 40" src="https://github.com/user-attachments/assets/bfce2a48-4260-432b-a0f2-fa4d9c708911" />
 As a certified lover of the Canvas Calendar--this is pretty reminiscent of the addition of displaying your weekly classes in addition to your assignments. This is great for those who are trying to figure out if they can attend club meetings posted on their calendar but accidentally see that they have a midterm project due at 11:59!! You can easily as well flip through last month and next month to figure out plans and schedules. 
 
-Final Limitations of the Project:
+### Final Limitations of the Project:
 There are two main features that are currently not working/ were not implemented due to scope purposes and this just being a re-make of the university portal. Many include the finance features (adding more money to your account, viewing specifics about finances and your schedule) and well as the search feature. Ideally--this would be a catch all search funciton for things like a directory, all previously implemented features, and any other UC websites such as My Bearcat Network. There is additionally currently no feature to modify events on the calendar or click on them for descriptions of the event / homework. 
