@@ -6,7 +6,7 @@
   import calcLogo from './assets/calc-logo.png';
   import profilePic from './assets/rpfp.jpeg';
 
-  // Student Stats
+  //Student Stats
   const studentStats = [
     { label: 'Current GPA', value: '3.67', sublabel: 'Cumulative: 3.54',  color: 'bg-blue-50 border-blue-200 text-blue-600' },
     { label: 'Credits Earned', value: '89/120', sublabel: '31 credits remaining',  color: 'bg-green-50 border-green-200 text-green-600' },
@@ -14,7 +14,7 @@
     { label: 'Next Class', value: '2:30 PM', sublabel: 'Operating Systems',  color: 'bg-purple-50 border-purple-200 text-purple-600' }
   ];
 
-  // Quick Access Links - the main goal of the redesign!
+  //Quick Access Links
   const quickLinks = [
     { title: 'Canvas', description: 'View courses & assignments', color: 'bg-red-600', href: '#canvas' },
     { title: 'Catalyst', description: 'Register for classes', color: 'bg-orange-600', href: '#catalyst' },
@@ -67,7 +67,7 @@
 </script>
 
 <div class="max-w-7xl mx-auto space-y-6">
-  <! Student Profile Card>
+  <!----Student Profile Card-->
   <div class="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg p-6 shadow-lg">
     <div class="flex items-center gap-4">
       <img src={profilePic} alt="Profile" class="w-20 h-20 rounded-full border-4 border-white shadow-lg object-cover" />
@@ -83,7 +83,7 @@
     </div>
   </div>
 
-  <! Stats Grid >
+  <!----Stats Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     {#each studentStats as stat}
       <div class="bg-white border-2 {stat.color} rounded-lg p-4 hover:shadow-md transition-shadow">
@@ -99,7 +99,8 @@
     {/each}
   </div>
 
-  <! Quick Access Links - THE KEY FEATURE! >
+  <!----Quick Access Links - THE KEY FEATURE! -->
+  <!-- why did you make this so aggresive lmao-->
   <div class="bg-white border rounded-lg p-6 shadow-sm">
     <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
       <span></span>
@@ -121,9 +122,9 @@
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <! Main Column - Assignments & Classes >
+    <!----Main Column for Assignments and Classes -->
     <div class="lg:col-span-2 space-y-6">
-      <! Action Items / To-Do >
+      <!----Action Items and To-Do -->
       <div class="bg-white border rounded-lg p-6 shadow-sm">
         <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
           <span></span>
@@ -158,7 +159,7 @@
         </ul>
       </div>
 
-      <! Course Feed >
+      <!----Course Feed -->
       <div class="bg-white border rounded-lg p-6 shadow-sm">
         <h2 class="text-lg font-semibold mb-4">Recent Course Activity</h2>
         <ul class="space-y-4">
@@ -187,9 +188,9 @@
       </div>
     </div>
 
-    <! Right Sidebar >
+    <!----Right Sidebar -->
     <aside class="space-y-6">
-      <! Today's Schedule >
+      <!----Today's Schedule -->
       <div class="bg-white border rounded-lg p-6 shadow-sm">
         <h3 class="font-semibold mb-4 flex items-center gap-2">
           <span></span>
@@ -238,7 +239,7 @@
         </button>
       </div>
 
-      <! Campus Resources >
+      <!----Campus Resources -->
       <div class="bg-white border rounded-lg p-6 shadow-sm">
         <h3 class="font-semibold mb-4 flex items-center gap-2">
           <span></span>
@@ -258,10 +259,10 @@
         </div>
       </div>
 
-      <! Bearcat Dollers Quick View >
+      <!----Bearcat Dollars Quick View -->
       <div class="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-lg p-6 shadow-lg">
         <div class="flex items-center justify-between mb-2">
-          <h3 class="font-semibold">Bearcat Dollers</h3>
+          <h3 class="font-semibold">Bearcat Dollars</h3>
           <span class="text-2xl"></span>
         </div>
         <div class="text-3xl font-bold mb-1">$127.50</div>

@@ -5,16 +5,18 @@
   import Finances from './finances.svelte';
   import Header from './header.svelte';
   
-  let currentView = 'dashboard'; // 'dashboard', 'calendar', or 'finances'
+  let currentView = 'dashboard';
   
   function setView(view) {
     currentView = view;
   }
+
 </script>
 
+<!-- updating for navigation for sidebar-->
 <div class="min-h-screen bg-gray-50 text-gray-800">
   <div class="flex">
-    <Sidebar />
+    <Sidebar {setView} />
     <div class="flex-1">
       <Header {currentView} {setView} />
       <main class="p-6 lg:p-8">

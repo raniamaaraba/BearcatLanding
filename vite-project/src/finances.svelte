@@ -49,7 +49,7 @@
     { date: 'Jan 15, 2026', description: 'Spring 2026 Tuition', amount: 11220.00 }
   ];
   
-  const bearBucks = {
+  const bearcatDollars = {
     balance: 127.50,
     lastUsed: 'Yesterday at TUC Food Court',
     recentTransactions: [
@@ -80,7 +80,7 @@
 </script>
 
 <div class="max-w-7xl mx-auto space-y-6">
-  <! Account Summary >
+  <!--Account Summary-->
   <div class="bg-white border rounded-lg p-6">
     <h2 class="text-2xl font-semibold mb-6">Account Summary</h2>
     
@@ -102,11 +102,11 @@
       </div>
       
       <div class="p-4 bg-green-50 rounded-lg border border-green-200">
-        <div class="text-sm text-gray-600 mb-1">Bear Bucks Balance</div>
+        <div class="text-sm text-gray-600 mb-1">Bearcat Dollars</div>
         <div class="text-3xl font-bold text-green-600">
-          {formatCurrency(bearBucks.balance)}
+          {formatCurrency(bearcatDollars.balance)}
         </div>
-        <div class="text-xs text-gray-500 mt-2">Last: {bearBucks.lastUsed}</div>
+        <div class="text-xs text-gray-500 mt-2">Last: {bearcatDollars.lastUsed}</div>
       </div>
     </div>
     
@@ -118,13 +118,13 @@
         Set Up Payment Plan
       </button>
       <button class="px-4 py-2 border rounded hover:bg-gray-50">
-        Add Bear Bucks
+        Add Bearcat Dollars
       </button>
     </div>
   </div>
   
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-    <! Tuition Breakdown >
+    <!----Tuition Breakdown -->
     <div class="bg-white border rounded-lg p-6">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-lg font-semibold">Tuition Breakdown</h3>
@@ -168,7 +168,7 @@
         </div>
       </div>
       
-      <! Progress Bar >
+      <!----Progress Bar -->
       <div class="mt-4">
         <div class="flex justify-between text-xs text-gray-600 mb-1">
           <span>Payment Progress</span>
@@ -183,7 +183,7 @@
       </div>
     </div>
     
-    < Financial Aid >
+    <!----Financial Aid -->
     <div class="bg-white border rounded-lg p-6">
       <h3 class="text-lg font-semibold mb-4">Financial Aid</h3>
       
@@ -221,7 +221,7 @@
     </div>
   </div>
   
-  <! Upcoming Payments >
+  <!----Upcoming Payments -->
   <div class="bg-white border rounded-lg p-6">
     <h3 class="text-lg font-semibold mb-4">Upcoming Payments</h3>
     
@@ -247,9 +247,9 @@
     </div>
   </div>
   
-  <! Payment History & Bear Bucks in 2 columns >
+  <!----Payment History & Bearcat Dollars in 2 columns -->
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <! Payment History >
+    <!----Payment History -->
     <div class="lg:col-span-2 bg-white border rounded-lg p-6">
       <h3 class="text-lg font-semibold mb-4">Payment History</h3>
       
@@ -283,14 +283,14 @@
       </button>
     </div>
     
-    <! Bear Bucks Detail >
+    <!----Bearcat Dollars Detail -->
     <div class="bg-white border rounded-lg p-6">
-      <h3 class="text-lg font-semibold mb-4">Bear Bucks</h3>
+      <h3 class="text-lg font-semibold mb-4">Bearcat Dollars</h3>
       
       <div class="mb-4 p-4 bg-green-50 rounded border border-green-200 text-center">
         <div class="text-sm text-gray-600">Available Balance</div>
         <div class="text-3xl font-bold text-green-600 my-2">
-          {formatCurrency(bearBucks.balance)}
+          {formatCurrency(bearcatDollars.balance)}
         </div>
         <button class="mt-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm w-full">
           Add Funds
@@ -299,7 +299,7 @@
       
       <h4 class="text-sm font-medium mb-2">Recent Transactions</h4>
       <div class="space-y-2">
-        {#each bearBucks.recentTransactions as transaction}
+        {#each bearcatDollars.recentTransactions as transaction}
           <div class="flex justify-between text-sm p-2 bg-gray-50 rounded">
             <div>
               <div class="font-medium text-xs">{transaction.location}</div>

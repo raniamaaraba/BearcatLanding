@@ -1,12 +1,11 @@
 <script>
   import { onMount } from 'svelte';
   
-  // Calendar state
+  //Calendar state
   let currentDate = new Date();
   let selectedDate = null;
-  let viewMode = 'month'; // 'month' or 'week'
+  let viewMode = 'month'; //can chage to week
   
-  // Sample events - this would come from your data
   const events = [
     { date: new Date(2025, 10, 6), time: '08:30', title: 'Uptown Express Starts', type: 'shuttle', repeat: 'every 45 min' },
     { date: new Date(2025, 10, 6), time: '17:00', title: 'Rocketry Club Meeting', location: 'BALDWIN 880', type: 'club' },
@@ -16,7 +15,7 @@
     { date: new Date(2025, 10, 7), time: '23:59', title: 'Reading 10.2 Due', type: 'assignment', course: 'EECE 4038C' },
   ];
   
-  // Classes schedule (MWF, TR patterns)
+  //MWF and TH
   const classSchedule = [
     { days: [1, 3, 5], time: '09:00-10:20', title: 'User Interfaces', code: 'CS 5167', color: 'bg-blue-100 border-blue-300' },
     { days: [2, 4], time: '11:00-12:20', title: 'AI', code: 'CS 4033', color: 'bg-green-100 border-green-300' },
@@ -29,7 +28,7 @@
   $: monthEnd = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
   $: monthName = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   
-  // Generate calendar days
+  //generate calendar days
   $: calendarDays = generateCalendarDays(currentDate);
   
   function generateCalendarDays(date) {
@@ -42,7 +41,7 @@
     
     const days = [];
     
-    // Previous month's trailing days
+    //Previous month's trailing days
     const prevMonthDays = new Date(year, month, 0).getDate();
     for (let i = startingDayOfWeek - 1; i >= 0; i--) {
       days.push({
@@ -51,7 +50,7 @@
       });
     }
     
-    // Current month days
+    //Current month days
     for (let i = 1; i <= daysInMonth; i++) {
       days.push({
         date: new Date(year, month, i),
@@ -59,7 +58,7 @@
       });
     }
     
-    // Next month's leading days
+    //Next month's days
     const remainingDays = 42 - days.length; // 6 rows × 7 days
     for (let i = 1; i <= remainingDays; i++) {
       days.push({
@@ -116,7 +115,7 @@
 </script>
 
 <div class="bg-white border rounded-lg p-6">
-  <! Calendar Header >
+  <!----Calendar Header -->
   <div class="flex items-center justify-between mb-6">
     <div class="flex items-center gap-4">
       <h2 class="text-2xl font-semibold">{monthName}</h2>
@@ -150,16 +149,16 @@
     </div>
   </div>
   
-  <! Calendar Grid >
+  <!---Calendar Grid -->
   <div class="grid grid-cols-7 gap-1">
-    <! Day headers >
+    <!----Day headers -->
     {#each ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as day}
       <div class="text-center text-sm font-medium text-gray-600 py-2">
         {day}
       </div>
     {/each}
     
-    <! Calendar days >
+    <!----Calendar days -->
     {#each calendarDays as { date, isCurrentMonth }}
       {@const dayEvents = getEventsForDate(date)}
       {@const dayClasses = getClassesForDate(date)}
@@ -177,7 +176,7 @@
           {date.getDate()}
         </div>
         
-        <! Classes for this day >
+        <!----Classes for this day -->
         {#if isCurrentMonth && dayClasses.length > 0}
           <div class="space-y-1">
             {#each dayClasses.slice(0, 2) as cls}
@@ -191,7 +190,7 @@
           </div>
         {/if}
         
-        <! Events for this day >
+        <!----Events for this day -->
         {#if isCurrentMonth && dayEvents.length > 0}
           <div class="mt-1 space-y-1">
             {#each dayEvents.slice(0, 1) as event}
@@ -208,7 +207,7 @@
     {/each}
   </div>
   
-  <! Selected Date Details >
+  <!----Selected Date Details -->
   {#if selectedDate}
     {@const selectedEvents = getEventsForDate(selectedDate)}
     {@const selectedClasses = getClassesForDate(selectedDate)}
@@ -266,7 +265,7 @@
     </div>
   {/if}
   
-  <! Legend >
+  <!----Legend -->
   <div class="mt-6 flex flex-wrap gap-4 text-xs">
     <div class="flex items-center gap-2">
       <div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div>
